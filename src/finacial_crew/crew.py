@@ -5,13 +5,21 @@ from crewai.project import CrewBase, agent, crew, task
 from langchain_groq import ChatGroq
 
 
+
+
+import yaml
+
 @CrewBase
 class UniversityCrew():
-  agents = 'config/agents.yaml'
-  tasks = 'config/tasks.yaml'
+  def __init__(self) -> None:
+        with open('src/finacial_crew/config/agents.yaml', 'r') as agents_file:
+            self.agents = yaml.safe_load(agents_file)
 
-  def __init__(self)->None:
-    self.groq_llm = ChatGroq(temperature=0, model_name="mixtral-8x7b-32768")
+        with open('src/finacial_crew/config/tasks.yaml', 'r') as tasks_file:
+            self.tasks = yaml.safe_load(tasks_file)
+
+        self.groq_llm = ChatGroq(temperature=0, model_name="mixtral-8x7b-32768")
+
 
   @agent
   def university_researcher(self) -> Agent:
@@ -29,14 +37,8 @@ class UniversityCrew():
 
   @task
   def research_university_task(self) -> Task:
-        # Access task description and expected output directly from tasks.yaml
-        description = self.tasks['research_university_task']['description']
-        expected_output = self.tasks['research_university_task']['expected_output']
         return Task(
-            config={  # No separate config dictionary needed here
-                "description": description,
-                "expected_output": expected_output
-            },
+            config=self.tasks.get('research_university_task', {}),  # Use .get() to handle missing keys
             agent=self.university_researcher()
         )
 

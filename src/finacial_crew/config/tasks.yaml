@@ -1,0 +1,37 @@
+research_university_task:
+  description: >
+    Use a search tool to look up this university's information : {uni_name}.
+    The goal is to prepare enough information to make an overview of the university.
+  expected_output: >
+    University Name: [University Name]
+    Location: [City, State, Country]
+    Established: [Year Established]
+    Type: [Public/Private/Research-focused]
+    Campus Size: [Size of Campus in Acres]
+    Total Students: [Total Number of Students]
+    Undergraduate Programs: [Number of Undergraduate Programs]
+    Graduate Programs: [Number of Graduate Programs]
+    Faculty-Student Ratio: [Faculty-Student Ratio]
+    Accreditation: [Accrediting Body]
+    Notable Facilities: [List of Key Facilities]
+    Notable Research Areas: [List of Key Research Areas]
+    Partnerships and Collaborations: [List of Collaborative Partnerships]
+    Rankings: [Recent Rankings and Achievements]
+
+analyse_university_task:
+  description: >
+    Conduct an in-depth analysis of the university's key features, strengths, weaknesses, opportunities, and threats (SWOT analysis).
+    Use available data and reports to provide a comprehensive overview.
+  expected_output: >
+    University Name: [University Name]
+    Location: [City, State, Country]
+    Established: [Year Established]
+    Type: [Public/Private/Research-focused]
+    Campus Size: [Size of Campus in Acres]
+    Total Students: [Total Number of Students]
+    Faculty-Student Ratio: [Faculty-Student Ratio]
+    Academic Reputation: [Strengths and Weaknesses]
+    Financial Standing: [Opportunities and Threats]
+    Notable Achievements: [Recent Accomplishments]
+    Challenges and Future Plans: [Areas for Improvement and Strategic Goals]
+
